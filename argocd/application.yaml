@@ -1,0 +1,46 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: game-2048
+  namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+  labels:
+    app.kubernetes.io/name: game-2048
+    app.kubernetes.io/part-of: game-2048-devops
+    environment: production
+spec:
+  project: game-2048-project
+  source:
+    repoURL: https://github.com/yugandhar99/2048-game-devops.git
+    targetRevision: main
+    path: k8s
+    kustomize:
+      images:
+        - ghcr.io/yugandhar99/2048-game-devops:latest
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: game-2048
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+      allowEmpty: false
+    syncOptions:
+      - CreateNamespace=true
+      - PrunePropagationPolicy=foreground
+      - PruneLast=true
+    retry:
+      limit: 5
+      backoff:
+        duration: 5s
+        factor: 2
+        maxDuration: 3m
+  revisionHistoryLimit: 10
+  info:
+    - name: Description
+      value: 2048 static game deployed through Docker, Kubernetes, and ArgoCD GitOps
+    - name: Owner
+      value: Yugandhar
+    - name: Repository
+      value: https://github.com/yugandhar99/2048-game-devops

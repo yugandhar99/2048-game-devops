@@ -1,0 +1,14 @@
+aws_region                = "us-west-2"
+cluster_name              = "2048-game"
+environment               = "dev"
+kubernetes_version        = "1.33"
+vpc_cidr                  = "10.0.0.0/16"
+enable_single_nat_gateway = true
+enable_cluster_logs       = false
+enable_monitoring         = false
+ecr_repository_name       = "game-2048"
+
+extra_tags = {
+  Portfolio = "true"
+  Owner     = "Yugandhar"
+}

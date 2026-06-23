@@ -1,0 +1,51 @@
+name: Portfolio Validation - 2048 Game DevOps
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    name: Validate project files
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        shell: bash
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Validate static game assets
+        working-directory: game
+        run: npm test
+
+      - name: Validate JavaScript syntax
+        working-directory: game
+        run: npm run lint
+
+      - name: Check required DevOps files
+        run: |
+          test -f README.md
+          test -f game/Dockerfile
+          test -f game/nginx.conf
+          test -f k8s/deployment.yaml
+          test -f k8s/service.yaml
+          test -f argocd/application.yaml
+          test -f infra/main.tf
+          test -f docs/ARCHITECTURE.md
+          test -f docs/RUNBOOK.md
+          echo "Required portfolio files are present."
+
+      - name: Validate GenAI summary script syntax
+        run: python -m py_compile scripts/genai_release_summary.py

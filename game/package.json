@@ -1,0 +1,26 @@
+{
+  "name": "2048-game-devops",
+  "version": "1.0.0",
+  "description": "Static 2048 browser game packaged as a production-ready DevOps/Kubernetes portfolio project",
+  "main": "index.html",
+  "scripts": {
+    "test": "node scripts/smoke-test.js",
+    "lint": "node scripts/lint-js.js",
+    "validate": "npm test && npm run lint",
+    "build": "docker build -t game-2048 .",
+    "serve": "docker run --rm -p 8080:8080 game-2048"
+  },
+  "keywords": [
+    "game",
+    "2048",
+    "javascript",
+    "docker",
+    "kubernetes",
+    "devops",
+    "gitops",
+    "argocd",
+    "terraform"
+  ],
+  "author": "Yugandhar",
+  "license": "MIT"
+}

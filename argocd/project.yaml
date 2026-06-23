@@ -1,0 +1,58 @@
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: game-2048-project
+  namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  description: GitOps project for the 2048 game DevOps portfolio deployment
+  sourceRepos:
+    - 'https://github.com/yugandhar99/2048-game-devops'
+    - 'https://github.com/yugandhar99/2048-game-devops.git'
+  destinations:
+    - namespace: game-2048
+      server: https://kubernetes.default.svc
+    - namespace: argocd
+      server: https://kubernetes.default.svc
+  clusterResourceWhitelist:
+    - group: ''
+      kind: Namespace
+    - group: networking.k8s.io
+      kind: IngressClass
+  namespaceResourceWhitelist:
+    - group: ''
+      kind: Service
+    - group: ''
+      kind: ConfigMap
+    - group: ''
+      kind: Secret
+    - group: ''
+      kind: ServiceAccount
+    - group: apps
+      kind: Deployment
+    - group: apps
+      kind: ReplicaSet
+    - group: networking.k8s.io
+      kind: Ingress
+    - group: networking.k8s.io
+      kind: NetworkPolicy
+    - group: autoscaling
+      kind: HorizontalPodAutoscaler
+    - group: policy
+      kind: PodDisruptionBudget
+  roles:
+    - name: admin
+      description: Admin privileges for the 2048 GitOps project
+      policies:
+        - p, proj:game-2048-project:admin, applications, *, game-2048-project/*, allow
+        - p, proj:game-2048-project:admin, repositories, *, *, allow
+      groups:
+        - game-2048-admins
+    - name: developer
+      description: Developer access for sync and troubleshooting
+      policies:
+        - p, proj:game-2048-project:developer, applications, get, game-2048-project/*, allow
+        - p, proj:game-2048-project:developer, applications, sync, game-2048-project/*, allow
+      groups:
+        - game-2048-developers

@@ -1,0 +1,44 @@
+# Dependabot is intentionally disabled for this portfolio repository by default.
+# Reason: automatic dependency PRs can create red checks when major GitHub Action
+# or Terraform module upgrades require manual workflow changes.
+#
+# If you want to re-enable Dependabot later, rename this file to:
+#   .github/dependabot.yml
+#
+# This safer configuration limits PR noise and ignores risky major updates.
+version: 2
+updates:
+  - package-ecosystem: "npm"
+    directory: "/game"
+    schedule:
+      interval: "monthly"
+    open-pull-requests-limit: 2
+    labels:
+      - "dependencies"
+      - "npm"
+
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "monthly"
+    open-pull-requests-limit: 1
+    labels:
+      - "dependencies"
+      - "github_actions"
+    ignore:
+      - dependency-name: "*"
+        update-types:
+          - "version-update:semver-major"
+
+  - package-ecosystem: "terraform"
+    directory: "/infra"
+    schedule:
+      interval: "monthly"
+    open-pull-requests-limit: 1
+    labels:
+      - "dependencies"
+      - "terraform"
+    ignore:
+      - dependency-name: "*"
+        update-types:
+          - "version-update:semver-major"

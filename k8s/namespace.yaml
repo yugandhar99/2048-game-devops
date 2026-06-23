@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: game-2048
+  labels:
+    app.kubernetes.io/name: game-2048
+    app.kubernetes.io/part-of: game-2048-devops
+    pod-security.kubernetes.io/enforce: restricted
+    pod-security.kubernetes.io/audit: restricted
+    pod-security.kubernetes.io/warn: restricted

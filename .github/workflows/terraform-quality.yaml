@@ -1,0 +1,35 @@
+name: Terraform Quality - Manual Advisory
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  terraform-advisory:
+    name: Terraform file checks
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: infra
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v3
+        with:
+          terraform_version: 1.9.8
+
+      - name: Terraform format check
+        continue-on-error: true
+        run: terraform fmt -check -recursive
+
+      - name: Terraform init without backend
+        continue-on-error: true
+        run: terraform init -backend=false
+
+      - name: Terraform validate
+        continue-on-error: true
+        run: terraform validate
