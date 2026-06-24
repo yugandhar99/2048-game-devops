@@ -8,6 +8,7 @@
   <img src="https://img.shields.io/badge/DevSecOps-Trivy%20%7C%20CodeQL-red?style=for-the-badge" />
 </p>
 
+
 A DevOps-enhanced version of the classic **2048 browser game**, productionized with Docker, Kubernetes, ArgoCD GitOps, Terraform-based AWS EKS infrastructure, GitHub Actions CI/CD, security scanning, SBOM generation, and optional AI-ready release summaries.
 
 The game recipe is intentionally kept simple: static **HTML, CSS, and JavaScript** served by NGINX. The upgrade is focused on the real-world DevOps workflow around the app.
