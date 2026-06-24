@@ -12,9 +12,6 @@ A DevOps-enhanced version of the classic **2048 browser game**, productionized w
 
 The game recipe is intentionally kept simple: static **HTML, CSS, and JavaScript** served by NGINX. The upgrade is focused on the real-world DevOps workflow around the app.
 
----
-
-> **Portfolio CI note:** This final GitHub-ready version keeps one lightweight auto-running validation workflow on push. Heavier CodeQL, dependency review, and Terraform checks are kept as manual/advisory workflows to avoid noisy first-upload failures while still showing modern DevOps practices.
 
 ## 📸 Project Snapshots
 
