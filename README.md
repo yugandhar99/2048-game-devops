@@ -307,9 +307,6 @@ This project shows career progression from a simple static game to a production-
 
 <p align="center">
   <strong>Built with ❤️ using modern DevOps practices</strong>
-</p>t added value, feel free to star the repository and connect with me!
 </p>
 
-<p align="center">
-  <strong>Built with ❤️ using modern DevOps practices</strong>
-</p>
+
