@@ -2,7 +2,7 @@
 # ARGOCD INSTALLATION AND CONFIGURATION
 # =============================================================================
 
-# Wait for the cluster and add-ons to be ready
+# Wait for the clus ter and add-ons to be ready
 resource "time_sleep" "wait_for_cluster" {
   create_duration = "45s"
   depends_on = [
