@@ -1,4 +1,4 @@
-na me: Terraform Quality - Manual Advisory
+name: Terraform Quality - Manual Advisory
 
 on:
   workflow_dispatch:
