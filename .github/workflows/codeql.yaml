@@ -1,4 +1,4 @@
-na me: CodeQL Security Scan - Manual
+name: CodeQL Security Scan - Manual
 
 on:
   workflow_dispatch:
