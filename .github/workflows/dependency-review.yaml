@@ -1,4 +1,5 @@
 name: Dependency Review - Manual
+
 on:
   workflow_dispatch:
 permissions:
