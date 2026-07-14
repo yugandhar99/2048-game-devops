@@ -1,4 +1,5 @@
 name: Terraform Quality - Manual Advisory
+
 on:
   workflow_dispatch:
 
