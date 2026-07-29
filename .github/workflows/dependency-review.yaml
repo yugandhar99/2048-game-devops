@@ -1,6 +1,6 @@
 name: Dependency Review - Manual
 
-on:
+on: 
   workflow_dispatch:
 permissions:
   contents: read
