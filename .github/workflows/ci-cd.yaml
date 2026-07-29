@@ -1,6 +1,6 @@
 name: Portfolio Validation - 2048 Game DevOps
 
-on: 
+on:
   push:
     branches: [main]
   pull_request:
