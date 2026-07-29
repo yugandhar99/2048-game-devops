@@ -12,7 +12,7 @@ variable "aws_region" {
     error_message = "aws_region must be a valid AWS region such as us-west-2."
   }
 }
-
+ 
 variable "cluster_name" {
   description = "Base name of the EKS cluster"
   type        = string
