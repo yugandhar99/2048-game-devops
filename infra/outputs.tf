@@ -10,7 +10,7 @@ output "cluster_name" {
   description = "Name of the EKS cluster (with unique suffix)"
   value       = module.game_eks.cluster_name
 }
- 
+
 output "cluster_name_base" {
   description = "Base cluster name without suffix"
   value       = var.cluster_name
