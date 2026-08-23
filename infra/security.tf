@@ -1,7 +1,7 @@
 # =============================================================================
 # SECURITY NOTES
 # =============================================================================
-# The EKS module and the ingress controller create the security groups required
+# The EKS module and the ingress controller create the security groups required 
 # for cluster communication and load balancer access. This project intentionally
 # avoids broad internet ingress rules on the EKS cluster security group.
 #
