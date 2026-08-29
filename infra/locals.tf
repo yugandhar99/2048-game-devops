@@ -1,5 +1,5 @@
 # =============================================================================
-# LOCAL VALUES AND DATA SOURCES 
+# LOCAL VALUES AND DATA SOURCES
 # =============================================================================
 
 data "aws_availability_zones" "available" {
