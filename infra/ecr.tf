@@ -1,5 +1,5 @@
 # =============================================================================
-# ECR REPOSITORY FOR THE GAME IMAGE
+# ECR REPOSITORY FOR THE GAME IMAGE 
 # =============================================================================
 
 resource "aws_ecr_repository" "game" {
