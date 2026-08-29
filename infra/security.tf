@@ -1,5 +1,5 @@
 # =============================================================================
-# SECURITY NOTES
+# SECURITY NOTES 
 # =============================================================================
 # The EKS module and the ingress controller create the security groups required
 # for cluster communication and load balancer access. This project intentionally
