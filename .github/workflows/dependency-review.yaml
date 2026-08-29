@@ -1,4 +1,4 @@
-name: Dependency Review - Manual 
+name: Dependency Review - Manual
 
 on: 
   workflow_dispatch:
