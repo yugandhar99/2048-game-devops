@@ -1,5 +1,5 @@
 # Rename this file to backend.tf after creating your S3 backend resources.
-# Do not commit real bucket names for client/customer environments. 
+# Do not commit real bucket names for client/customer environments.
 
 terraform {
   backend "s3" {
