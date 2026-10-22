@@ -8,7 +8,7 @@ extended to call Amazon Bedrock for a richer release note.
 
 from __future__ import annotations
 
-import json 
+import json
 import os
 import subprocess
 from datetime import datetime, timezone
